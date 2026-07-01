@@ -1,0 +1,151 @@
+body {
+    background:
+    linear-gradient(
+        to bottom,
+        #f7e58a 0%,
+        #f7e58a 50%,
+        #8fb6e8 50%,
+        #8fb6e8 75%,
+        #e79a9a 75%,
+        #e79a9a 100%
+    );
+
+    height: 100vh;
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    position: relative;
+}
+h1{
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-size: 50px;
+    font-weight: 900;
+
+    z-index: 10000;
+}
+
+.card{
+    position:absolute;
+    width:150px;
+    height:230px;
+
+    background:white;
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.3);
+}
+.deck-container{
+    position: absolute;
+
+    top: 55%;
+    left: 50%;
+
+    transform: translate(-50%, -50%) translateX(100px);
+
+    width: 550px;
+    height: 420px;
+}
+
+.card img{
+    width:100%;
+    height:190px;
+    object-fit:cover;
+}
+
+.card h3{
+    margin:5px;
+    font-size:14px;
+    text-align:center;
+}
+
+.card1{
+    left:0px;
+    top:0px;
+    z-index:1;
+}
+
+.card2{
+    left:35px;
+    top:15px;
+    z-index:2;
+}
+
+.card3{
+    left:70px;
+    top:30px;
+    z-index:3;
+}
+
+.card4{
+    left:105px;
+    top:45px;
+    z-index:4;
+}
+
+.card5{
+    left:140px;
+    top:60px;
+    z-index:5;
+}
+
+.card6{
+    left:175px;
+    top:75px;
+    z-index:6;
+}
+
+.card7{
+    left:210px;
+    top:90px;
+    z-index:7;
+}
+
+.card8{
+    left:245px;
+    top:105px;
+    z-index:8;
+}
+
+.card9{
+    left:280px;
+    top:120px;
+    z-index:9;
+}
+
+.card10{
+    left:315px;
+    top:135px;
+    z-index:10;
+}
+
+.card11{
+    left:350px;
+    top:150px;
+    z-index:11;
+}
+
+/* Animación suave */
+.card{
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.card:hover{
+    z-index:999;
+    transform:
+        translateY(-40px)
+        rotate(-2deg)
+        scale(1.1);
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.45);
+}
