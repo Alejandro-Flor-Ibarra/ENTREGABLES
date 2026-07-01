@@ -1,0 +1,124 @@
+body{
+    position: relative;
+    background-color: rgb(217, 227, 236);
+    font-family: Arial;
+    margin: 0;
+    padding: 60px;
+    
+}
+
+/* Ambos títulos comparten estilos */
+h1, h2{
+    text-align: center;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+    letter-spacing: -1px; /*Espacio entre letras*/
+    transform: scaleY(1.5); /*Altura de las letras*/
+    
+}
+
+h1{
+    color: rgb(0, 162, 255);
+    font-size: 3rem;
+    font-weight: bold;
+    
+}
+.title{
+    position: absolute;
+    top: 40px;
+    right: 60px;
+    display: inline-block;
+    text-align: center;
+    margin-left: auto;
+}
+
+h2{
+    color: rgb(6, 104, 161);
+    
+    font-size: 1.4rem;
+    margin-top: 50px; 
+    font-weight: bold;
+}
+h1::after{
+    content: "";
+    display: block;
+    height: 1px;
+    background: rgba(0,0,0,.25);
+    margin-top: 12px;
+    width: 100%;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    align-items: flex-start;
+}
+
+.heart{
+    width: 220px;
+    height: 110px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.card-top{
+    flex: 2;                 /* Parte superior más grande */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.card-bottom{
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #5e9fff;
+
+    border-radius: 0 0 20px 20px;
+
+    box-shadow:
+    -2px 12px 8px rgba(0,0,0,.45);
+}
+
+.card-bottom button{
+    background: #5e9fff;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.MeDiv{
+    display: inline-block;
+    background: transparent;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow:
+       inset 0 4px 8px rgba(0,0,0,.15);
+}
+
+.Me{
+    background: #5e9fff;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+.Me2{
+    background: #5e9fff;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 10px;
+    font-size: 16px;
+    border: none;      /* 👈 esto quita el borde */
+    box-shadow:
+        -1px 10px 0px rgba(0, 0, 0, 0.555);
+}
