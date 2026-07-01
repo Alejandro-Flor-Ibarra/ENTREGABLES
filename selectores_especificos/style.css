@@ -1,0 +1,85 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #fffbe6;
+    padding: 2rem;
+    max-width: 900px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    color: #4a3f00;
+}
+
+.acciones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0 1rem;
+}
+
+.acciones a {
+    background: #f0c000;
+    color: #000;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px #ccc;
+    transition: 0.3s;
+}
+
+.acciones a:hover {
+    background: #e0b000;
+}
+
+.ingredientes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.item {
+    background: #fff;
+    border: 3px solid #ccc;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 140px;
+    text-align: center;
+    box-shadow: 2px 2px 5px #ddd;
+    position: relative;
+    transition: 0.3s;
+}
+
+.item strong {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Colores por tipo */
+.fruta   { border-color: orange; }
+.vegetal { border-color: green; }
+.dry     { border-color: brown; background: #fdf6ee; }
+.berry   { border-color: blue; font-style: italic; }
+
+/* OCULTAR TODOS por defecto al usar filtros */
+#frutas:target ~ .ingredientes .item:not(.fruta),
+#vegetales:target ~ .ingredientes .item:not(.vegetal),
+#dry:target ~ .ingredientes .item:not(.dry),
+#berries:target ~ .ingredientes .item:not(.berry) {
+    display: none;
+}
+
+/* RESETEAR (mostrar todos) */
+#todo:target ~ .ingredientes .item {
+    display: block;
+}
+
+/* Botón activo */
+.acciones a:target {
+    outline: 2px solid red;
+}
