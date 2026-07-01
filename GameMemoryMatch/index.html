@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Memoria: Parejas de Animales</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Encaja las Parejas de Animales 🦁</h1>
+    
+    <div class="game-container">
+        <!-- Tablero Principal del Juego (14 tarjetas) -->
+        <div class="board" id="board"></div>
+
+        <!-- Panel Lateral de Progreso -->
+        <div class="progress-panel">
+            <h3>Animales Encontrados</h3>
+            <div id="found-list" class="found-list"></div>
+            <button onclick="reiniciarJuego()" class="btn-reset">Reiniciar Juego</button>
+        </div>
+    </div>
+
+    <script>
+        // Arreglado: Eliminado el espacio inválido en el nombre de la variable
+        const animalesBase = ['🦁', '🐸', '🐍', '🕷️', '🦍', '🦊', '🦉'];
+        let animales = [...animalesBase, ...animalesBase];
+        
+        let tarjetasVolteadas = [];
+        let bloqueado = false;
+
+        // Función para mezclar las tarjetas aleatoriamente
+        function mezclar(array) {
+            return array.sort(() => Math.random() - 0.5);
+        }
+
+        // Inicializar el tablero
+        function crearTablero() {
+            const tablero = document.getElementById('board');
+            tablero.innerHTML = '';
+            document.getElementById('found-list').innerHTML = '';
+            
+            mezclar(animales);
+
+            animales.forEach((animal, indice) => {
+                const tarjeta = document.createElement('div');
+                tarjeta.classList.add('card');
+                tarjeta.dataset.animal = animal;
+                tarjeta.dataset.indice = indice;
+                
+                // Texto oculto inicialmente mediante CSS personalizado
+                tarjeta.innerHTML = `<span class="emoji-hidden">${animal}</span>`;
+                
+                tarjeta.addEventListener('click', voltearTarjeta);
+                tablero.appendChild(tarjeta);
+            });
+        }
+
+        function voltearTarjeta() {
+            if (bloqueado) return;
+            if (this.classList.contains('flipped') || this.classList.contains('matched')) return;
+
+            // Mostrar el animal añadiendo la clase CSS
+            this.classList.add('flipped');
+            tarjetasVolteadas.push(this);
+
+            if (tarjetasVolteadas.length === 2) {
+                revisarMatch();
+            }
+        }
+
+        function revisarMatch() {
+            bloqueado = true;
+            const [tarjeta1, tarjeta2] = tarjetasVolteadas;
+
+            if (tarjeta1.dataset.animal === tarjeta2.dataset.animal) {
+                // ¡Hubo Match!
+                setTimeout(() => {
+                    // Desaparecen del tablero conservando el espacio físico (visibility: hidden)
+                    tarjeta1.classList.add('matched');
+                    tarjeta2.classList.add('matched');
+
+                    // Aparece en el listado de encontrados (display: inline-block)
+                    agregarAListaEncontrados(tarjeta1.dataset.animal);
+
+                    tarjetasVolteadas = [];
+                    bloqueado = false;
+                    verificarVictoria();
+                }, 600);
+            } else {
+                // No hubo match: Se vuelven a ocultar un segundo más tarde
+                setTimeout(() => {
+                    tarjeta1.classList.remove('flipped');
+                    tarjeta2.classList.remove('flipped');
+                    tarjetasVolteadas = [];
+                    bloqueado = false;
+                }, 1000);
+            }
+        }
+
+        function agregarAListaEncontrados(animal) {
+            const lista = document.getElementById('found-list');
+            const item = document.createElement('div');
+            item.classList.add('found-item');
+            item.innerText = animal;
+            lista.appendChild(item);
+        }
+
+        function verificarVictoria() {
+            const totalMatched = document.querySelectorAll('.card.matched').length;
+            if (totalMatched === animales.length) {
+                setTimeout(() => {
+                    alert('¡Felicidades! Has encontrado todas las parejas 🎉');
+                }, 500);
+            }
+        }
+
+        function reiniciarJuego() {
+            tarjetasVolteadas = [];
+            bloqueado = false;
+            crearTablero();
+        }
+
+        // Arrancar juego automáticamente al cargar la página
+        crearTablero();
+    </script>
+</body>
+</html>

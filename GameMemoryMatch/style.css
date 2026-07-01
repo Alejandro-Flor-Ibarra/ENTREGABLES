@@ -1,0 +1,114 @@
+body {
+    background-color: #2f3542;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #ffa502;
+    margin-bottom: 30px;
+}
+
+.game-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+/* TABLERO EN BLOQUE */
+.board {
+    width: 440px; 
+    display: block; 
+}
+
+.card {
+    display: inline-block; 
+    width: 90px;
+    height: 90px;
+    background-color: #1e272e;
+    border: 3px solid #ffa502;
+    border-radius: 10px;
+    margin: 5px;
+    font-size: 40px;
+    line-height: 90px; 
+    text-align: center;
+    cursor: pointer;
+    vertical-align: top;
+    transition: background-color 0.3s;
+}
+
+.card:hover {
+    background-color: #3d4d5a;
+}
+
+/* LÓGICA DE DISPLAY Y VISIBILITY */
+.card .emoji-hidden {
+    display: none;
+}
+
+.card.flipped {
+    background-color: #57606f;
+    border-color: #2ed573;
+}
+
+.card.flipped .emoji-hidden {
+    display: block; 
+}
+
+/* Conserva el espacio físico del tablero al hacer match */
+.card.matched {
+    visibility: hidden !important;
+}
+
+/* PANEL LATERAL */
+.progress-panel {
+    background-color: #1e272e;
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    min-height: 200px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.found-list {
+    margin-top: 15px;
+    min-height: 100px;
+}
+
+.found-item {
+    display: inline-block;
+    font-size: 35px;
+    margin: 5px;
+    background-color: #2ed573;
+    padding: 5px;
+    border-radius: 5px;
+    animation: aparecer 0.4s ease-out;
+}
+
+.btn-reset {
+    background-color: #ff4757;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.btn-reset:hover {
+    background-color: #ff6b81;
+}
+
+@keyframes aparecer {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+}
