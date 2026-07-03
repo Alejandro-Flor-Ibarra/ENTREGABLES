@@ -16,12 +16,12 @@ body{
 /* ======== Contenedor ======== */
 
 section{ 
-    width:90%;
+    width:97%;
     margin:40px 0%;
     padding:30px;
-    background:#ffffff;
+    background:#ebeaf5;
     border-radius:14px;
-    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    box-shadow:0 4px 6px rgba(0,0,0,.1);
 }
 
 /* ======== Títulos ======== */
@@ -163,7 +163,8 @@ blockquote{
         position: relative;
         width: 100%;
         height: auto;
-        box-shadow: none;
+        border-radius:14px;
+        box-shadow:0 4px 6px rgba(0,0,0,.1);
     }
 
     .content{
@@ -173,5 +174,6 @@ blockquote{
     .sidebar a{
         display:inline-block;
         margin:5px;
+        box-shadow:0 4px 6px rgba(0,0,0,.1);
     }
 }
