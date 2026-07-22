@@ -1,0 +1,99 @@
+.logo_redes{
+    width: 150px;
+    
+}
+.nav{
+    background-color: #666464;   
+}
+
+.nav ul {
+display: flex;            
+    flex-direction: row; 
+    justify-content: flex-end; 
+    justify-content: Arial;
+    list-style: none;       
+}
+.nav a {
+    color: white;             
+    text-decoration: none;    
+    padding: 10px 15px;       
+    display: block;
+    font-size: 12px;
+}
+.nav a:hover {
+    color: #d1d416bd;         
+}
+.banner {
+    display: flex;               /* Activamos Flexbox en el banner */
+    flex-direction: row;         /* Coloca el bloque de texto y el aside en fila horizontal */
+    justify-content: space-between; /* ¡ESTA ES LA MAGIA! Empuja el texto a la izquierda y el aside a la derecha */
+    align-items: center;         /* Centra verticalmente los títulos y el logo para que se vean alineados */
+    padding: 2px 40px;          /* Añade espacio interno arriba/abajo y a los lados */
+}
+.texto-banner {
+    display: flex;
+    flex-direction: column;      /* Mantiene los tres <h1> apilados uno abajo del otro */
+    text-align: left; 
+               /* Alinea el texto a la izquierda */
+}
+.texto-banner h1 {
+    margin: 1px 0;
+    font-size: 20px;             /* Puedes ajustar el tamaño de tus letras aquí */
+}
+.main {
+    background-color: #d1d416bd; /* Fondo amarillo/verde */
+    display: flex;
+    flex-direction: row;        /* Pone la imagen y el cuadrito en fila */
+    align-items: center;        /* Alinea verticalmente al centro la imagen y el cuadrito */
+    padding: 30px;              /* Espacio interno para que nada toque las orillas del fondo amarillo */
+    gap: 25px;                  /* ¡ESTO SEPARA LA IMAGEN DEL CUADRITO! */
+}
+
+.clases{
+    display: flex;
+    flex-direction: column;
+    
+}
+.contacto {
+    background-color: #918f8f;
+    display: flex;
+    flex-direction: row;       /* Los tratamos inicialmente como una fila */
+    flex-wrap: wrap;           /* ¡CLAVE! Permite que los elementos bajen al segundo piso */
+    align-items: center;        /* Alinea verticalmente al centro la imagen y el cuadrito */
+    padding: 30px;
+    gap: 20px;                 /* Espaciado entre todos los elementos */
+}
+
+/* 2. Forzamos los elementos de la fila superior */
+.contacto h2 {
+    order: 1;                  /* Aparece primero */
+    margin: 0;
+    color: white;
+}
+
+.contacto aside {
+    order: 2;                  /* Aparece segundo (a la derecha del H2) */
+    margin: 10px;         /* Asegura que se pegue por completo a la derecha */
+}
+
+/* 3. Forzamos los artículos a ir abajo y ocupar todo el ancho */
+.contacto article {
+    order: 3;                  /* Al tener un número mayor, bajan automáticamente al segundo piso */
+    flex-basis: 100%;          /* ¡CLAVE! Al medir el 100%, obligan a romper la fila y ponerse abajo */
+    padding: 10px 15px;
+    border-radius: 4px;
+    color: white;
+    margin: 0;
+}
+.imagen1{
+    width: 20%;
+    height: 20%;
+    border: 10px solid #ffffff;  /* Grosor (5px), estilo (sólido) y color (blanco) */
+    box-sizing: border-box;     /* Evita que el marco sume tamaño extra a la imagen */
+}
+footer {
+    background-color: #0a0a0a;
+    color: white;
+    text-align: left;
+    padding: 20px 40px; 
+}
